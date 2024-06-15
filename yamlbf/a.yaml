@@ -47,10 +47,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: node
-                operator: NotIn
+              - key: kubernetes.io/hostname
+                operator: In
                 values:
-                - master
+                - worker1
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -101,10 +101,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: node
-                operator: NotIn
+              - key: kubernetes.io/hostname
+                operator: In
                 values:
-                - master
+                - worker1
 ---
 apiVersion: apps/v1
 kind: Deployment
@@ -155,10 +155,10 @@ spec:
           requiredDuringSchedulingIgnoredDuringExecution:
             nodeSelectorTerms:
             - matchExpressions:
-              - key: node
-                operator: NotIn
+              - key: kubernetes.io/hostname
+                operator: In
                 values:
-                - master
+                - worker1
 ---
 
 apiVersion: v1

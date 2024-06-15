@@ -1,0 +1,44 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-a1
+  namespace: paper2
+  labels:
+    app: service-a
+    version: service-a1
+    
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: service-a
+      version: service-a1
+      
+  template:
+    metadata:
+      labels:
+        app: service-a
+        version: service-a1
+        
+    spec:
+      containers:
+      - name: service-a
+        image: hokunpark/paper2:serviceA
+        imagePullPolicy: Always
+        resources:
+          requests:
+            cpu: "200m"
+            memory: "300Mi"
+        ports:
+        - containerPort: 11000
+        command: ["uvicorn"]
+        args: ["main:app", "--host", "0.0.0.0", "--port", "11000"]
+      affinity:
+        nodeAffinity:
+          requiredDuringSchedulingIgnoredDuringExecution:
+            nodeSelectorTerms:
+            - matchExpressions:
+              - key: kubernetes.io/hostname
+                operator: In
+                values:
+                - worker1

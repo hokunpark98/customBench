@@ -23,7 +23,7 @@ def send_request(url):
     return None
 
 def simulate_load(user_count):
-    url = "http://10.103.111.52:11000/a?value=1"
+    url = "http://10.96.220.244:11000/a?value=1"
     response_times = []
     with ThreadPoolExecutor(max_workers=user_count) as executor:
         futures = [executor.submit(send_request, url) for _ in range(user_count)]
@@ -49,7 +49,7 @@ def main():
             if percentile_95 is not None:
                 results[user_count].append(percentile_95)
     
-    with open('/home/dnc/master/paper2024/customBench/code/virtual_user_result.txt', 'w') as file:
+    with open('/home/dnc/master/customBench/code/virtual_user_result.txt', 'w') as file:
         for user_count in user_counts:
             if results[user_count]:
                 average_95th_percentile = np.mean(results[user_count])
