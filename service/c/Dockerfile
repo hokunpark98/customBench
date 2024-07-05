@@ -8,7 +8,7 @@ WORKDIR /app
 RUN apt-get update && \
     apt-get install -y curl && \
     rm -rf /var/lib/apt/lists/* && \
-    pip install --no-cache-dir fastapi uvicorn httpx
+    pip install --no-cache-dir fastapi uvicorn requests aiohttp
 
 
 # 애플리케이션 파일 복사

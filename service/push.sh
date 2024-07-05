@@ -1,19 +1,23 @@
 #!/bin/bash
 
-cd /home/dnclab/hokun/paper2/bench/service/a
-docker build -t hokunpark/paper2:serviceA .
-docker push hokunpark/paper2:serviceA
+cd /home/dnc/master/customBench/service/a
+docker build -t hokunpark/paper2:serviceA2 .
+docker push hokunpark/paper2:serviceA2
 
-cd /home/dnclab/hokun/paper2/bench/service/b
-docker build -t hokunpark/paper2:serviceB .
-docker push hokunpark/paper2:serviceB
-
-
-cd /home/dnclab/hokun/paper2/bench/service/c
-docker build -t hokunpark/paper2:serviceC .
-docker push hokunpark/paper2:serviceC
+cd /home/dnc/master/customBench/service/b
+docker build -t hokunpark/paper2:serviceB2 .
+docker push hokunpark/paper2:serviceB2
 
 
-cd /home/dnclab/hokun/paper2/bench/service/d
-docker build -t hokunpark/paper2:serviceD .
-docker push hokunpark/paper2:serviceD
+cd /home/dnc/master/customBench/service/c
+docker build -t hokunpark/paper2:serviceC2 .
+docker push hokunpark/paper2:serviceC2
+
+
+cd /home/dnc/master/customBench/service/d
+docker build -t hokunpark/paper2:serviceD2 .
+docker push hokunpark/paper2:serviceD2
+
+cd /home/dnc/master/customBench/service/e
+docker build -t hokunpark/paper2:serviceE2 .
+docker push hokunpark/paper2:serviceE2

@@ -6,29 +6,32 @@ metadata:
   labels:
     app: service-d
     version: service-d2
-    
+
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: service-d
       version: service-d2
-      
+
   template:
     metadata:
       labels:
         app: service-d
         version: service-d2
-        
+
     spec:
       containers:
       - name: service-d
-        image: hokunpark/paper2:serviceD
+        image: hokunpark/paper2:serviceD2
         imagePullPolicy: Always
         resources:
           requests:
-            cpu: "200m"
-            memory: "300Mi"
+            cpu: "500m"
+            memory: "500Mi"
+          limits:
+            cpu: "500m"
+            memory: "500Mi"  
         ports:
         - containerPort: 11003
         command: ["uvicorn"]

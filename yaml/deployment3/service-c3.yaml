@@ -6,29 +6,32 @@ metadata:
   labels:
     app: service-c
     version: service-c3
-    
+
 spec:
   replicas: 1
   selector:
     matchLabels:
       app: service-c
       version: service-c3
-      
+
   template:
     metadata:
       labels:
         app: service-c
         version: service-c3
-        
+
     spec:
       containers:
       - name: service-c
-        image: hokunpark/paper2:serviceC
+        image: hokunpark/paper2:serviceC2
         imagePullPolicy: Always
         resources:
           requests:
-            cpu: "200m"
-            memory: "300Mi"
+            cpu: "500m"
+            memory: "500Mi"
+          limits:
+            cpu: "500m"
+            memory: "500Mi"  
         ports:
         - containerPort: 11002
         command: ["uvicorn"]
@@ -41,4 +44,4 @@ spec:
               - key: kubernetes.io/hostname
                 operator: In
                 values:
-                - worker1
+                - worker4
